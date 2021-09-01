@@ -1,0 +1,155 @@
+{
+  "openapi": "3.0.6",
+  "info": {
+    "title": "Encurtador de URL",
+    "description": "Esse projeto tem como objetivo testar meus conhecimentos, em Back-End. Desenvolvido usando: NodeJS com TypeScript, ExpressJS, banco de dados PostgreSQL, TypeORM.",
+    "contact": {
+      "email": "edibertooliveira@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:3334",
+      "description": "API base"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Responsável pelo interface da pagina",
+        "description": "Essa rota será responsável pela interface da pagina e disponibilizar o formulário para encurtar a URL",
+        "operationId": "urlsController_index",
+        "tags": [
+          "Hume"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {}
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/xhtml+xml": {}
+            }
+          }
+        }
+      }
+    },
+    "/new": {
+      "post": {
+        "summary": "Responsável pela criação da referencia",
+        "description": "Essa rota será responsável por criar a referencia do caminho da rota original",
+        "operationId": "urlsController_url",
+        "tags": [
+          "Criação encurtador"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": {
+                "url": "https://www.linkedin.com/company/zg-solucoes/"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "example": {
+                  "url": "http://127.0.0.1:3334/4355",
+                  "reference": "4355"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Paramento invalido",
+            "content": {
+              "application/json": {
+                "example": {
+                  "url": "http://127.0.0.1:3334/4355",
+                  "reference": "4355"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/:reference": {
+      "get": {
+        "summary": "Responsável solicitar o redirecionamento para a pagina de origem",
+        "description": "Solicita o endereço da pagina salva no banco de dados, através da referencia criada",
+        "operationId": "urlsController_findUrl",
+        "tags": [
+          "Redirecionamento"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {},
+          "required": true
+        },
+        "responses": {
+          "302": {
+            "description": "Redirecionado",
+            "content": {}
+          },
+          "404": {
+            "description": "O URL não existe",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error_api"
+                },
+                "example": {
+                  "status": "error",
+                  "message": "URL does not exist"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error_validate": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "statusCode": {
+            "type": "number"
+          },
+          "error": {
+            "type": "string"
+          },
+          "validation": {
+            "type": "object"
+          }
+        }
+      },
+      "Error_api": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

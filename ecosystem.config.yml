@@ -1,0 +1,12 @@
+apps:
+  - name: hawkins
+    script: ./dist/shared/api/server.js
+    max_memory_restart: 200M
+    exec_mode: cluster
+    instances: 2
+    env_hawkins:
+      PORT: 3000
+      UPSIDEDOWN_MODE: false
+    env_upside-down:
+      PORT: 3000
+      UPSIDEDOWN_MODE: true
