@@ -6,7 +6,7 @@ temp/
 .env
 coverage
 dist
-
+ormconfig.json
 .docker/data
 uploads/*
 !uploads/.gitkeep
