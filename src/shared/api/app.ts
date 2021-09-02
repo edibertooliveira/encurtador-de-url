@@ -2,7 +2,6 @@ import '@shared/container';
 import createConnection from '@shared/typeorm';
 import express from 'express';
 import 'express-async-errors';
-import { errors } from 'celebrate';
 import cors from 'cors';
 import routes from './routers';
 import rateLimiter from './middlewares/rateLimiter';
@@ -21,7 +20,6 @@ app.use(cors());
 app.use(express.json(), express.urlencoded({ extended: true }));
 app.use(rateLimiter);
 app.use(routes);
-app.use(errors());
 
 app.use(errorApi);
 

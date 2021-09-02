@@ -1,5 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import HandleError from '@shared/errors/HandleError';
+import { CelebrateError } from 'celebrate';
+import { mold } from '../views/mold';
 
 export default (
   err: Error,
@@ -9,14 +11,30 @@ export default (
 ) => {
   if (err instanceof HandleError) {
     return res.status(err.statusCode).render('error', {
-      status: 'error',
-      message: err.message,
+      ...mold,
+      error: {
+        name: 'Error',
+        message: err.message,
+      },
     });
   }
 
-  console.log('ERROR: ', err);
+  if (err instanceof CelebrateError) {
+    const celebrate = Array.from(err.details)[0][1];
+    return res.status(400).render('error', {
+      ...mold,
+      error: {
+        name: celebrate.name,
+        message: celebrate.message,
+      },
+    });
+  }
+
   return res.status(500).render('error', {
-    status: 'error',
-    message: err.message,
+    ...mold,
+    error: {
+      name: 'Error',
+      message: 'Internal server error',
+    },
   });
 };

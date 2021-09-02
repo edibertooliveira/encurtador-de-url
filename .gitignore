@@ -10,3 +10,4 @@ ormconfig.json
 .docker/data
 uploads/*
 !uploads/.gitkeep
+ormconfig.js

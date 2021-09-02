@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lc6gD0cAAAAAKBI8yRad4nCtxs2ZgrDDw6BxzbU"></script>
+
+  <head>
+    <script
+      src="https://www.google.com/recaptcha/enterprise.js?render=6Lc6gD0cAAAAAKBI8yRad4nCtxs2ZgrDDw6BxzbU"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title><%= title; %></title>
+    <title>
+      <%= title; %>
+    </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <style>
       .header {
         padding: 3rem;
@@ -27,48 +30,50 @@
         border-radius: .25rem;
         text-align: center;
       }
+
     </style>
-</head>
-<body>
-<div class="container">
-    <div class="header">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
         <h1>
-            <%= title; %>
+          <%= title; %>
         </h1>
         <p>Seu novo encurtador de URL!</p>
         <span>
-           <a href=<%= linkDoc; %>>Link documentação</a>
+          <a href=<%=linkDoc; %>>Link documentação</a>
         </span>
-    </div>
-    <div class="row">
-
+      </div>
+      <div class="row">
         <div class="content">
-            <form method="POST" action="/new">
-                <div class="mb-3 input-group">
-                    <input placeholder="Digite a URL a ser encurtada" name="url" class="form-control"/>
-                </div>
-                <div class="content">
-                    <div class="g-recaptcha" data-sitekey="6LcDfz4cAAAAAD2ajz5HgVb-MriQGs1LM431rlKm"></div>
-                    <br/>
-                    <input class="btn btn-success" type="submit" value="Gerar">
-                </div>
-            </form>
+          <form method="POST" action="/new">
+            <div class="mb-3 input-group">
+              <input placeholder="Digite a URL a ser encurtada" name="url" class="form-control" />
+            </div>
+            <div class="content">
+              <div class="g-recaptcha" data-sitekey="6LcDfz4cAAAAAD2ajz5HgVb-MriQGs1LM431rlKm"></div>
+              <br />
+              <input class="btn btn-success" type="submit" value="Gerar">
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
 
-</script>
-<script src="https://www.google.com/recaptcha/enterprise.js?render=6LcDfz4cAAAAAD2ajz5HgVb-MriQGs1LM431rlKm"></script>
-<script>
-  grecaptcha.enterprise.ready(function () {
-    grecaptcha.enterprise
-      .execute('6LcDfz4cAAAAAD2ajz5HgVb-MriQGs1LM431rlKm', { action: 'homepage' })
-      .then(function (token) {
+      </script>
+    <script
+      src="https://www.google.com/recaptcha/enterprise.js?render=6LcDfz4cAAAAAD2ajz5HgVb-MriQGs1LM431rlKm"></script>
+    <script>
+      grecaptcha.enterprise.ready(function () {
+        grecaptcha.enterprise
+          .execute('6LcDfz4cAAAAAD2ajz5HgVb-MriQGs1LM431rlKm', { action: 'homepage' })
+          .then(function (token) {
+          });
       });
-  });
-</script>
-</body>
+    </script>
+  </body>
+
 </html>

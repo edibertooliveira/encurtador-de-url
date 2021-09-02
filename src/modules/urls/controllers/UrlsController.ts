@@ -1,14 +1,11 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 import { UrlService } from '@modules/urls/services/UrlService';
+import { mold } from '@shared/api/views/mold';
 
 export class UrlsController {
   async index(req: Request, res: Response): Promise<void> {
-    return res.status(200).render('index', {
-      title: 'Encurtador ZG',
-      linkDoc: process.env.APP_API_URL + '/docs',
-      url: '',
-    });
+    return res.status(200).render('index', mold);
   }
 
   async url(req: Request, res: Response): Promise<void> {
@@ -16,8 +13,7 @@ export class UrlsController {
     const createShortUrl = container.resolve(UrlService);
     const newUrl = await createShortUrl.createShortUrl(url);
     return res.status(201).render('created', {
-      title: 'Encurtador ZG',
-      linkDoc: process.env.APP_API_URL + '/docs',
+      ...mold,
       url: newUrl.url,
     });
   }
