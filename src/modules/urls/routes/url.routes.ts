@@ -14,6 +14,7 @@ urlRouter.post(
   celebrate({
     [Segments.BODY]: {
       url: Joi.string().uri().required(),
+      'g-recaptcha-response': Joi.string().required(),
     },
   }),
   urlsController.url,

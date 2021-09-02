@@ -8,7 +8,6 @@ export class UrlsController {
       title: 'Encurtador ZG',
       linkDoc: process.env.APP_API_URL + '/docs',
       url: '',
-      isActive: true,
     });
   }
 
@@ -16,11 +15,10 @@ export class UrlsController {
     const { url } = req.body;
     const createShortUrl = container.resolve(UrlService);
     const newUrl = await createShortUrl.createShortUrl(url);
-    return res.status(201).render('index', {
+    return res.status(201).render('created', {
       title: 'Encurtador ZG',
       linkDoc: process.env.APP_API_URL + '/docs',
       url: newUrl.url,
-      isActive: true,
     });
   }
 
