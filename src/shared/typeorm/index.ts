@@ -9,7 +9,7 @@ export default async (name = 'default'): Promise<Connection> => {
       name,
       database:
         NODE_ENV === 'test'
-          ? process.env.DB_DEV_DATABASE_TEST
+          ? process.env.DATABASE_URL_TEST
           : defaultOptions.database,
     }),
   );

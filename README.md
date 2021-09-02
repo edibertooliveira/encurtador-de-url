@@ -11,7 +11,7 @@ DATABASE_URL_TEST=postgres://username:password@localhost/zg-url-test
 ````
 _OBS: Adicionar usuario e senha do seu banco postgres_
 
-> Comandos inicialização no terminal:
+> Comandos de inicialização:
 ````bash
 > npm install
 > npx typeorm migrations:run
