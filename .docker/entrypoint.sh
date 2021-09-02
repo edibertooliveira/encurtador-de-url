@@ -1,5 +1,6 @@
 #!/bin/bash
 
 npm install
-npm run migration:up
+npx typeorm migrations:run
+npm run build
 npm run dev

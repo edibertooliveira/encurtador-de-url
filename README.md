@@ -4,9 +4,18 @@ Estes documento README tem como objetivo fornecer as informações necessárias 
 
 ## Inicialização do projeto:
 
+> Configuração .env
+````
+DATABASE_URL=postgres://username:password@localhost/zg-url
+DATABASE_URL_TEST=postgres://username:password@localhost/zg-url-test
+````
+_OBS: Adicionar usuario e senha do seu banco postgres_
+
+> Comandos inicialização no terminal:
 ````bash
 > npm install
-> npm run prestart
+> npx typeorm migrations:run
+> npm run build
 > npm run dev
 ````
 _link das rotas existentes_
