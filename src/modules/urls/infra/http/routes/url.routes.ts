@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { celebrate, Joi, Segments } from 'celebrate';
-import { UrlsController } from '@modules/urls/controllers/UrlsController';
+import { UrlsController } from '@modules/urls/infra/http/controllers/UrlsController';
 
 const urlRouter = Router();
 const urlsController = new UrlsController();

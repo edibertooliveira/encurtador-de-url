@@ -1,7 +1,8 @@
 import { getRepository, Repository } from 'typeorm';
 import Url from '../entities/Url';
+import { IUrlsRepository } from '@modules/urls/domain/repositories/IUrlsRepository';
 
-export class UrlsRepository {
+export class UrlsRepository implements IUrlsRepository {
   private ormRepository: Repository<Url>;
 
   constructor() {
