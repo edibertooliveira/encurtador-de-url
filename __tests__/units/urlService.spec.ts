@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { UrlService } from '@modules/urls/services/UrlService';
-import { UrlsRepositoryMake } from '../mocks/UrlsRepositoryMake';
+import { UrlsRepositoryMake } from './mocks/UrlsRepositoryMake';
 import { IUrlsRepository } from '@modules/urls/domain/repositories/IUrlsRepository';
-import { HashProviderMake } from '../mocks/HashProviderMake';
+import { HashProviderMake } from './mocks/HashProviderMake';
 import { IHashProvider } from '@modules/urls/providers/HashProvider/models/IHashProvider';
 import Url from '@modules/urls/infra/typeorm/entities/Url';
 import HandleError from '@shared/errors/HandleError';
