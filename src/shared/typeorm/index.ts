@@ -7,10 +7,10 @@ export default async (name = 'default'): Promise<Connection> => {
   return createConnection(
     Object.assign(defaultOptions, {
       name,
-      database:
+      url:
         NODE_ENV === 'test'
           ? process.env.DATABASE_URL_TEST
-          : defaultOptions.database,
+          : process.env.DATABASE_URL,
     }),
   );
 };
