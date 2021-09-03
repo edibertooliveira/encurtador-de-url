@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import urlRouter from '@modules/urls/routes/url.routes';
+import urlRouter from '@modules/urls/infra/http/routes/url.routes';
 import docRouter from '@shared/api/routers/doc.routes';
 
 const routes = Router();
