@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import HandleError from '@shared/errors/HandleError';
 import { CelebrateError } from 'celebrate';
-import { mold } from '@modules/urls/views/mold';
+import { mold } from '@shared/api/views/mold';
 
 export default (
   err: Error,

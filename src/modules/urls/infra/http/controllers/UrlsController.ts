@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 import { UrlService } from '@modules/urls/services/UrlService';
-import { mold } from '../../../views/mold';
+import { mold } from '@shared/api/views/mold';
 
 export class UrlsController {
   async index(req: Request, res: Response): Promise<void> {
