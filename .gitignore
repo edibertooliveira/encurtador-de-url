@@ -10,4 +10,5 @@ ormconfig.json
 .docker/data
 uploads/*
 !uploads/.gitkeep
+ormconfig.ts
 ormconfig.js
