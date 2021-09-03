@@ -1,0 +1,6 @@
+apps:
+  - name: "zg-url"
+    script: "./dist/shared/api/server.js"
+    exec_mode: "cluster"
+    instances: 2
+    max_memory_restart: "100M"

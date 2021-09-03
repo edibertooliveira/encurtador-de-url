@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "Ediberto BO",
   "scripts": {
-    "start": "node ./dist/shared/api/server.js",
+    "start": "pm2-runtime start ecosystem.config.yml",
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/api/server.ts",
     "test": "cross-env NODE_ENV=test jest --runInBand --coverage --detectOpenHandles --forceExit",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
